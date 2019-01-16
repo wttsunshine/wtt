@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="Student" class="com.chinasoft.entity.Student">
+		<property name="stuNo" value="1001"></property>
+		<property name="stuName" value="李四"></property>
+		<property name="stuAge" value="24"></property>
+		<property name="teacher" ref="myTeacher"></property>
+	</bean>
+	<bean id="myTeacher" class="com.chinasoft.entity.Teacher">
+		<property name="tid" value="11122"></property>
+		<property name="tName" value="rose"></property>
+	</bean>
+	<!--  -->
+	<bean id="studentDao" class="com.chinasoft.dao.impl.IStudentDaoImpl">
+	
+	</bean>
+	
+	<bean id="studentService" class="com.chinasoft.service.StudentService">
+		<property name="IStudentDao" ref="studentDao"></property>
+	</bean>
+	
+</beans>
